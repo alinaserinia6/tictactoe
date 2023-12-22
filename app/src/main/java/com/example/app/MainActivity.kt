@@ -7,6 +7,8 @@ import android.os.CountDownTimer
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.RelativeLayout
+import android.widget.Switch
 import androidx.appcompat.widget.Toolbar
 import androidx.activity.ComponentActivity
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -19,6 +21,11 @@ class MainActivity : ComponentActivity() {
         CROSS
     }
 
+    private var DarkTheme = false
+    private val Black = "#FF000000"
+    private val WHITE = "#FFFFFF"
+    private val Orange = "#f79817"
+    private val Blue = "#0000FF"
     private var firstTurn = Turn.CROSS
     private var currentTurn = firstTurn
     private val timerDuration = 30000L
@@ -102,9 +109,57 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-//    fun switchThemeTapped(view: View) {
-//        // TODO("WHAT THE HELL")
-//    }
+    fun switchThemeTapped(view: View) {
+        if (view !is Switch)
+            return
+        val page: RelativeLayout = findViewById(R.id.Page)
+        val S1 : View = findViewById(R.id.S1)
+        val S2 : View = findViewById(R.id.S2)
+        val V1 : View = findViewById(R.id.V1)
+        val V2 : View = findViewById(R.id.V2)
+        val V3 : View = findViewById(R.id.V3)
+        val V4 : View = findViewById(R.id.V4)
+        val V5 : View = findViewById(R.id.V5)
+        val V6 : View = findViewById(R.id.V6)
+        if (view.isChecked) {
+            DarkTheme = true
+            S1.setBackgroundColor(Color.parseColor(WHITE))
+            S2.setBackgroundColor(Color.parseColor(WHITE))
+            V1.setBackgroundColor(Color.parseColor(WHITE))
+            V2.setBackgroundColor(Color.parseColor(WHITE))
+            V3.setBackgroundColor(Color.parseColor(WHITE))
+            V4.setBackgroundColor(Color.parseColor(WHITE))
+            V5.setBackgroundColor(Color.parseColor(WHITE))
+            V6.setBackgroundColor(Color.parseColor(WHITE))
+            page.setBackgroundColor(Color.BLACK)
+            for (x in boardList) {
+                if (x.currentTextColor == Color.parseColor(Orange)) {
+                    x.setTextColor(Color.parseColor(Blue))
+                } else {
+                    x.setTextColor(Color.parseColor(WHITE))
+                }
+            }
+        } else {
+            DarkTheme = false
+            V6.setBackgroundColor(Color.parseColor(Black))
+            S1.setBackgroundColor(Color.parseColor(Black))
+            S2.setBackgroundColor(Color.parseColor(Black))
+            V1.setBackgroundColor(Color.parseColor(Black))
+            V2.setBackgroundColor(Color.parseColor(Black))
+            V3.setBackgroundColor(Color.parseColor(Black))
+            V4.setBackgroundColor(Color.parseColor(Black))
+            V5.setBackgroundColor(Color.parseColor(Black))
+            V6.setBackgroundColor(Color.parseColor(Black))
+            page.setBackgroundColor(Color.WHITE)
+            for (x in boardList) {
+                if (x.currentTextColor == Color.parseColor(Blue)) {
+                    x.setTextColor(Color.parseColor(Orange))
+                } else {
+                    x.setTextColor(Color.parseColor(Black))
+                }
+            }
+        }
+    }
 
     @SuppressLint("SetTextI18n")
     fun restartTapped(view: View) {
@@ -223,13 +278,15 @@ class MainActivity : ComponentActivity() {
         if (button.text != "")
             return
         if (currentTurn == Turn.NOUGHT) {
+            if (DarkTheme) button.setTextColor(Color.parseColor(Blue))
+            else button.setTextColor(Color.parseColor(Orange))
             button.text = NOUGHT
             currentTurn = Turn.CROSS
-            button.setTextColor(Color.parseColor("#f79817"))
         } else if (currentTurn == Turn.CROSS) {
+            if (DarkTheme) button.setTextColor(Color.parseColor(WHITE))
+            else button.setTextColor(Color.parseColor(Black))
             button.text = CROSS
             currentTurn = Turn.NOUGHT
-            button.setTextColor(Color.parseColor("#FF000000"))
         }
         setTurnLabel()
     }
