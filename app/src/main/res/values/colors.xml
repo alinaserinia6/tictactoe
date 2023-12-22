@@ -10,4 +10,6 @@
     <color name="selected">#B2634646</color>
     <color name="orange">#f79817</color>
     <color name="green">#48E755</color>
+    <color name="new_logo_background">#3B3939</color>
+    <color name="tic_tac_toe_tv_background">#FFFFFF</color>
 </resources>

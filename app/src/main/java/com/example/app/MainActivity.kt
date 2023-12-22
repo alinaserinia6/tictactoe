@@ -2,7 +2,6 @@ package com.example.app
 
 import android.annotation.SuppressLint
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
@@ -10,11 +9,9 @@ import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.widget.Toolbar
 import androidx.activity.ComponentActivity
-//import androidx.annotation.RequiresApie
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.app.databinding.ActivityMainBinding
-import com.example.app.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
     enum class Turn {
@@ -24,12 +21,12 @@ class MainActivity : ComponentActivity() {
 
     private var firstTurn = Turn.CROSS
     private var currentTurn = firstTurn
-    private var TIMER_DURATOIN = 30000L
+    private val timerDuration = 30000L
     private lateinit var binding: ActivityMainBinding
     private var boardList = mutableListOf<Button>()
     private val bigSize = 60F
 
-    private val timer = object : CountDownTimer(TIMER_DURATOIN, 1000) {
+    private val timer = object : CountDownTimer(timerDuration, 1000) {
         override fun onTick(millisUntillFinished: Long) {
             val secondsReaming = millisUntillFinished / 1000
             binding.result.text = secondsReaming.toString()
@@ -40,7 +37,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-//    @RequiresApi(Build.VERSION_CODES.S)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -106,9 +102,9 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    fun switchThemeTapped(view: View) {
-        TODO("what the hell")
-    }
+//    fun switchThemeTapped(view: View) {
+//        // TODO("WHAT THE HELL")
+//    }
 
     @SuppressLint("SetTextI18n")
     fun restartTapped(view: View) {
@@ -139,7 +135,7 @@ class MainActivity : ComponentActivity() {
             binding.a2.textSize = bigSize
             binding.a3.textSize = bigSize
             return true
-        };
+        }
         if (binding.b1.text.equals(person) && binding.b2.text.equals(person) && binding.b3.text.equals(
                 person
             )
@@ -148,7 +144,7 @@ class MainActivity : ComponentActivity() {
             binding.b2.textSize = bigSize
             binding.b3.textSize = bigSize
             return true
-        };
+        }
         if (binding.c1.text.equals(person) && binding.c2.text.equals(person) && binding.c3.text.equals(
                 person
             )
@@ -157,7 +153,7 @@ class MainActivity : ComponentActivity() {
             binding.c2.textSize = bigSize
             binding.c3.textSize = bigSize
             return true
-        };
+        }
         if (binding.a1.text.equals(person) && binding.b1.text.equals(person) && binding.c1.text.equals(
                 person
             )
@@ -166,7 +162,7 @@ class MainActivity : ComponentActivity() {
             binding.b1.textSize = bigSize
             binding.c1.textSize = bigSize
             return true
-        };
+        }
         if (binding.a2.text.equals(person) && binding.b2.text.equals(person) && binding.c2.text.equals(
                 person
             )
@@ -175,7 +171,7 @@ class MainActivity : ComponentActivity() {
             binding.b2.textSize = bigSize
             binding.c2.textSize = bigSize
             return true
-        };
+        }
         if (binding.a3.text.equals(person) && binding.b3.text.equals(person) && binding.c3.text.equals(
                 person
             )
@@ -184,7 +180,7 @@ class MainActivity : ComponentActivity() {
             binding.b3.textSize = bigSize
             binding.c3.textSize = bigSize
             return true
-        };
+        }
         if (binding.a1.text.equals(person) && binding.b2.text.equals(person) && binding.c3.text.equals(
                 person
             )
@@ -193,7 +189,7 @@ class MainActivity : ComponentActivity() {
             binding.b2.textSize = bigSize
             binding.c3.textSize = bigSize
             return true
-        };
+        }
         if (binding.a3.text.equals(person) && binding.b2.text.equals(person) && binding.c1.text.equals(
                 person
             )
@@ -202,8 +198,8 @@ class MainActivity : ComponentActivity() {
             binding.b2.textSize = bigSize
             binding.c1.textSize = bigSize
             return true
-        };
-        return false;
+        }
+        return false
     }
 
     private fun result(title: String) {
@@ -219,8 +215,8 @@ class MainActivity : ComponentActivity() {
     private fun fullBoard(): Boolean {
         for (button in boardList)
             if (button.text == "")
-                return false;
-        return true;
+                return false
+        return true
     }
 
     private fun addToBoard(button: Button) {
