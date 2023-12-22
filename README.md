@@ -15,4 +15,4 @@ Include some screenshots of your app in action here.
 
 ## Installation
 
-download it from [app.apk](blob:https://github.com/61078979-8174-4690-8b86-c7a255f60b8b)
+download it from [app.apk](https://github.com/61078979-8174-4690-8b86-c7a255f60b8b)
