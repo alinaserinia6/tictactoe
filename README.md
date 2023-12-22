@@ -15,4 +15,4 @@ Include some screenshots of your app in action here.
 
 ## Installation
 
-download it from release
+download it from [here](https://github.com/alinaserinia6/tictactoe/releases/download/game/install.apk)
