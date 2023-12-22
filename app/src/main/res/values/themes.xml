@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.App" parent="Theme.AppCompat.Light.DarkActionBar" />
+
+    <style name="ThemeOverlay" parent="ThemeOverlay.AppCompat.Dark" />
+
+    <style name="lightTheme" parent="Theme.AppCompat.Light.DarkActionBar" />
+</resources>

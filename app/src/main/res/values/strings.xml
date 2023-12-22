@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ali app</string>
+    <string name="ali">ali</string>
+    <string name="turn_x">Turn X</string>
+    <string name="x">x</string>
+    <string name="click_to_restart_game">click to restart game</string>
+    <string name="nothing">notrhing</string>
+    <string name="gameName">Tic Toc Toe</string>
+    <string name="test">test</string>
+    <string name="drawerOpen">open drawer</string>
+    <string name="drawerClose">close drawer</string>
+    <string name="tic_toc">Tic Toc</string>
+    <string name="toe">Toe</string>
+    <string name="theme">Theme</string>
+    <string name="splash">splash</string>
+    <string name="header">header</string>
+    <string name="setting">setting</string>
+</resources>
