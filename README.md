@@ -9,10 +9,6 @@ This is a simple Tic Tac Toe game for Android devices. It allows two players to 
 - Win detection: The game automatically detects when a player wins or if it's a draw.
 - Reset functionality: Start a new game at any time.
 
-## Screenshots
-
-Include some screenshots of your app in action here.
-
 ## Installation
 
 download it from [here](https://github.com/alinaserinia6/tictactoe/releases/download/game/install.apk)
